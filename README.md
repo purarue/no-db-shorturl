@@ -2,12 +2,13 @@
 
 It should not be this hard to have a URL shortened. I don't to configure a SQL database, run a docker container, install thousands of NPM packages, or configure PHP to redirect URLs.
 
-There are lots of URL shorteners out there, but they mostly use a database as a backend. Here's what this does:
+There are lots of URL shorteners out there, but they mostly use a database as a backend. This has:
 
 - No Configuration Files
 - No Database
 - No Web Front-End
 - Statically built binary downloadable from [here](https://github.com/seanbreckenridge/no-db-static-shorturl/releases)
+- Has no dependencies other than the go stdlib.
 
 This stores each link in its own individual file, in the `./data` directory.
 
@@ -16,6 +17,10 @@ This stores each link in its own individual file, in the `./data` directory.
 - To change what URL a shorturl redirects to, edit the file and change the contents.
 
 That is all I want.
+
+You can also build this from source instead:
+
+`go get -v -u "gitlab.com/seanbreckenridge/no-db-static-shorturl"`
 
 ```
 Usage of no-db-static-shorturl:
