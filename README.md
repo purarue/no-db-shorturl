@@ -29,7 +29,9 @@ Usage of no-db-static-shorturl:
 
 By default, anyone can create a URL, so I'd recommend providing a secret key with the `-secret-key` flag.
 
-To add a shortened URL, make a POST request to this endpoint. Example:
+To add a shortened URL, make a POST request to this endpoint
+
+To use `curl` as an example:
 
 ```
 curl --header "Content-Type: application/json" --request POST --data '{"key":"your_secret_key","url":"https://sean.fish"}' http://localhost:8040
