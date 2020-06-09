@@ -38,15 +38,11 @@ To add a shortened URL, make a POST request to this endpoint
 
 To use `curl` as an example:
 
-```
-curl --header "Content-Type: application/json" --request POST --data '{"key":"your_secret_key","url":"https://sean.fish"}' http://localhost:8040
-```
+`curl --header "Content-Type: application/json" --request POST --data '{"key":"your_secret_key","url":"https://sean.fish"}' http://localhost:8040`
 
 or to specify the path to create the shortcut on:
 
-```
-curl --header "Content-Type: application/json" --request POST --data '{"key":"your_secret_key","url":"https://sean.fish","hash":"short"}' http://localhost:8040
-```
+`curl --header "Content-Type: application/json" --request POST --data '{"key":"your_secret_key","url":"https://sean.fish","hash":"short"}' http://localhost:8040`
 
 I use this with `nginx`, like so:
 
