@@ -37,7 +37,7 @@ func randSeq(n int) string {
 
 // generates a hash value that doesnt already exist in ./data
 func generateHashValue() string {
-	hashLength := 5
+	hashLength := 4
 	incrementHashCount := randomRetryAmount
 	var hashStr string
 	for {
