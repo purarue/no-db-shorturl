@@ -1,6 +1,6 @@
 # no-db-static-shorturl
 
-It should not be this hard to have a URL shortened. I don't to configure a SQL database, run a docker container, install thousands of NPM packages, or configure PHP to redirect URLs.
+It should not be this hard to have a URL shortened. I don't want to configure a SQL database, run a docker container, install thousands of NPM packages, or configure PHP to redirect URLs.
 
 There are lots of URL shorteners out there, but they mostly use a database as a backend. This has:
 
