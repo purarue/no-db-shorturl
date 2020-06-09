@@ -17,8 +17,6 @@ This stores each link in its own individual file, in the `./data` directory.
 
 That is all I want.
 
-Due to all these choices, the performance wont be as great as the database backed URL shorteners. Though this is just for my personal website, this isn't going to be used by thousands of people every day, and golang is no slacker.
-
 ```
 Usage of no-db-static-shorturl:
   -data-folder string
