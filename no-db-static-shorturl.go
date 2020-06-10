@@ -131,7 +131,7 @@ func main() {
 				err = ioutil.WriteFile(filePath, []byte(passedUrl), 0644)
 				if err != nil {
 					w.WriteHeader(http.StatusInternalServerError)
-					fmt.Fprintf(w, "Error: Couldn't create shortcut file: %v\n", err)
+					fmt.Fprintf(w, "Error: Couldn't create shorturl file: %v\n", err)
 					return
 				} else {
 					fmt.Fprintf(w, "%s\n", filePath)
@@ -143,7 +143,7 @@ To add a shortened URL, make a POST request to this endpoint. Example:
 
 curl --header "Content-Type: application/json" --request POST --data '{"key":"your_secret_key","url":"https://sean.fish"}' http://localhost:8040
 
-or to specify the path to create the shortcut on:
+or to specify the path to create the shorturl on:
 
 curl --header "Content-Type: application/json" --request POST --data '{"key":"your_secret_key","url":"https://sean.fish","hash":"short"}' http://localhost:8040
 `)
@@ -158,12 +158,12 @@ curl --header "Content-Type: application/json" --request POST --data '{"key":"yo
 			}
 			// redirect user or 404
 			if _, err := os.Stat(trimmedUrl); err == nil {
-				// shortcut file exists, serve it
+				// shorturl file exists, serve it
 				contents, _ := ioutil.ReadFile(trimmedUrl)
 				http.Redirect(w, r, strings.TrimSpace(string(contents)), 302)
 				return
 			} else {
-				// shortcut doesnt exist
+				// shorturl doesnt exist
 				w.WriteHeader(http.StatusNotFound)
 				fmt.Fprintf(w, "Error: shorturl %s doesn't exist\n", r.URL.Path)
 				return
