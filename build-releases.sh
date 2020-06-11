@@ -14,6 +14,7 @@ package_name=$package
 #the full list of the platforms: https://golang.org/doc/install/source#environment
 platforms=(
   "darwin/amd64"
+#  "darwin/arm64"
 	"freebsd/amd64"
 	"freebsd/arm"
 	"linux/amd64"
