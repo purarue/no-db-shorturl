@@ -8,7 +8,7 @@ There are lots of URL shorteners out there, but they mostly use a database as a 
 - No Database
 - No Web Front-End
 - No Dependencies other than the go stdlib.
-- Statically built binary downloadable from [here](https://sean.fish/F/no-db-builds/)
+- Statically built binary downloadable from [here](https://sean.fish/F/no-db-static-shorturl-builds/)
 
 This stores each link in its own individual file, in the `./data` directory.
 
