@@ -147,7 +147,7 @@ or to specify the path to create the shorturl on:
 
 curl --header "Content-Type: application/json" --request POST --data '{"key":"your_secret_key","url":"https://sean.fish","hash":"short"}' http://localhost:8040
 
-For more info see https://gitlab.com/seanbreckenridge/no-db-static-shorturl
+For more info see https://github.com/seanbreckenridge/no-db-static-shorturl
 `)
 				return
 			}
