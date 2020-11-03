@@ -73,7 +73,10 @@ func parseFlags() *config {
 		panic(err)
 	}
 	if len(secretKey) == 0 {
-		log.Println("Warning: no -secret-key provided, anyone is able to create short URLs")
+		secretKey = os.Getenv("SHORTURL_KEY")
+		if len(secretKey) == 0 {
+			log.Println("Warning: no -secret-key flag or SHORTURL_KEY environment variable provided, anyone is able to create short URLs")
+		}
 	}
 	return &config{
 		port:       *port,

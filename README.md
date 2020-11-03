@@ -34,6 +34,8 @@ Usage of no-db-static-shorturl:
 
 By default, anyone can create a URL, so I'd recommend providing a secret key with the `-secret-key` flag.
 
+You can also set the `SHORTURL_KEY` environment variable, instead of `-secret-key` flag.
+
 To add a shortened URL, make a POST request to the `/` endpoint
 
 To use `curl` as an example:
