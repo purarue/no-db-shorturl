@@ -12,8 +12,9 @@ There are lots of URL shorteners out there, but they mostly use a database as a 
 
 This stores each link in its own individual file, in the `./data` directory.
 
+- To add a URL, you can make a POST request to the `/` endpoint (see below), or just create a text file with the hash you want in the data directory, whose contents is the URL to redirect to (this allows for programmatic shorturl generation on my server, using anything that can read/write to files)
+- To change the URL hash for a shorturl, rename the filename.
 - To delete a shorturl, delete the corresponding file.
-- To rename shorturls, rename the file.
 - To change what URL a shorturl redirects to, edit the file and change the contents.
 
 That is all I want.
