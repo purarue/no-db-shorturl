@@ -21,7 +21,7 @@ That is all I want.
 
 You can also build this from source instead:
 
-`go get -v -u "gitlab.com/seanbreckenridge/no-db-static-shorturl"`
+`go get -v -u "github.com/seanbreckenridge/no-db-static-shorturl"`
 
 ```
 Usage of no-db-static-shorturl:
