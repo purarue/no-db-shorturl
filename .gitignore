@@ -3,6 +3,7 @@ tags*
 /no-db-static-shorturl
 *.pdf
 /build
+/no-db-static-shorturl-builds
 
 # Created by https://www.toptal.com/developers/gitignore/api/go
 # Edit at https://www.toptal.com/developers/gitignore?templates=go
