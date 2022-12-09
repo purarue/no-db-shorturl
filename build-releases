@@ -1,8 +1,8 @@
 #!/bin/bash
 # Modified from: https://gist.github.com/DimaKoz/06b7475317b12e7ffa724ef0e115a4ec
 
-THIS_DIR="$(dirname "${BASH_SOURCE[0]}")"
-cd "$THIS_DIR"
+THIS_DIR="$(realpath "$(dirname "${BASH_SOURCE[0]}")")"
+cd "$THIS_DIR" || exit
 
 package=$(basename "$(pwd)")
 if [[ -z "$package" ]]; then
@@ -13,40 +13,46 @@ package_name=$package
 
 #the full list of the platforms: https://golang.org/doc/install/source#environment
 platforms=(
-	"darwin/amd64"
-	#  "darwin/arm64"
-	"freebsd/amd64"
-	"freebsd/arm"
-	"linux/amd64"
-	"linux/arm"
-	"linux/arm64"
-	"netbsd/amd64"
-	"netbsd/arm"
-	"openbsd/amd64"
-	"openbsd/arm"
-	"solaris/amd64"
-	"windows/amd64"
-	"windows/386")
+	"darwin amd64"
+	#  "darwin arm64"
+	"freebsd amd64"
+	"freebsd arm"
+	"linux amd64"
+	"linux arm"
+	"linux arm64"
+	"netbsd amd64"
+	"netbsd arm"
+	"openbsd amd64"
+	"openbsd arm"
+	"solaris amd64"
+	"windows amd64"
+	"windows 386"
+)
 
-BUILD_DIR="${THIS_DIR}/build"
-[ -d "$BUILD_DIR" ] && rm -rf "$BUILD_DIR"
+BUILD_DIR="${THIS_DIR}/no-db-shorturl-builds"
+[[ -d "$BUILD_DIR" ]] && rm -rf "$BUILD_DIR"
 mkdir -p "$BUILD_DIR"
-cd "$BUILD_DIR"
+cd "$BUILD_DIR" || exit
 
 for platform in "${platforms[@]}"; do
-	platform_split=(${platform//\// })
+	read -ra platform_split <<<"$platform"
 	GOOS=${platform_split[0]}
 	GOARCH=${platform_split[1]}
 	output_name="${package_name}-${GOOS}-${GOARCH}"
-	if [ $GOOS = "windows" ]; then
+	if [[ "$GOOS" = windows ]]; then
 		output_name+='.exe'
 	fi
 
 	echo "building ${platform}..."
 
-	env GOOS=$GOOS GOARCH=$GOARCH go build -o "${output_name}" ..
-	if [ $? -ne 0 ]; then
-		echo 'An error has occurred! Aborting the script execution...'
+	if ! env GOOS="$GOOS" GOARCH="$GOARCH" go build -o "${output_name}" ..; then
+		echo 'An error has occurred! Aborting the script execution...' >&2
 		exit 1
 	fi
 done
+
+SYNC="${REPOS}/vps/remsync"
+if [[ -r "$SYNC" ]]; then
+	echo 'Syncing...'
+	REMSYNC_PUBLIC=1 "${REPOS}/vps/remsync" "$BUILD_DIR"
+fi
