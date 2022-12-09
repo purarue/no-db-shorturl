@@ -1,4 +1,4 @@
-# no-db-static-shorturl
+# no-db-shorturl
 
 It should not be this hard to have a URL shortened. I don't want to configure a SQL database, run a docker container, install thousands of NPM packages, or configure PHP to redirect URLs.
 
@@ -8,7 +8,7 @@ There are lots of URL shorteners out there, but they mostly use a database as a 
 - No Database
 - No Web Front-End
 - No Dependencies other than the go stdlib.
-- Statically built binary downloadable from [here](https://sean.fish/p/no-db-static-shorturl-builds/)
+- Statically built binary downloadable from [here](https://sean.fish/p/no-db-shorturl-builds/)
 
 This stores each link in its own individual file, in the `./data` directory.
 
@@ -21,10 +21,10 @@ That is all I want.
 
 You can also build this from source instead:
 
-`go install -v "github.com/seanbreckenridge/no-db-static-shorturl@latest"`
+`go install -v "github.com/seanbreckenridge/no-db-shorturl@latest"`
 
 ```
-Usage of no-db-static-shorturl:
+Usage of no-db-shorturl:
   -data-folder string
     	directory to store data in (default "./data")
   -port int
