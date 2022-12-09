@@ -12,16 +12,27 @@ There are lots of URL shorteners out there, but they mostly use a database as a 
 
 This stores each link in its own individual file, in the `./data` directory.
 
-- To add a URL, you can make a POST request to the `/` endpoint (see below), or just create a text file with the hash you want in the data directory, whose contents is the URL to redirect to (this allows for programmatic shorturl generation on my server, using anything that can read/write to files)
-- To change the URL hash for a shorturl, rename the filename.
-- To delete a shorturl, delete the corresponding file.
-- To change what URL a shorturl redirects to, edit the file and change the contents.
+- To add a URL, you create a file with the hash (name) in the `./data` directory, with the URL to redirect to on the first line. This can also be done with a POST request to the `/` endpoint (see below)
+- To change the URL hash for a shorturl, rename the file
+- To delete a shorturl, delete the file
+- To change what URL a shorturl redirects to, edit the file and change the contents
 
 That is all I want.
+
+This allows for programmatic shorturl generation on my server, using anything that can read/write to files, as well as simple aliases to grab one from my machine by `ssh`ing to my server, like:
+
+```bash
+# list all shorturls
+alias shorturls="ssh myserver 'ls shorturls'"  # directory name
+# copy a shorturl to my clipboard
+alias shz="shorturls | fzf | sed -e 's|^|https://sean.fish/s/|' | tee /dev/tty | clipcopy"
+```
 
 You can also build this from source instead:
 
 `go install -v "github.com/seanbreckenridge/no-db-shorturl@latest"`
+
+Usage:
 
 ```
 Usage of no-db-shorturl:
