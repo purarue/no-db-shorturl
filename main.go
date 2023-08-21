@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"math/rand"
 	"net/http"
@@ -131,7 +130,7 @@ func main() {
 					filePath = generateHashValue()
 				}
 				// Create URL
-				err = ioutil.WriteFile(filePath, []byte(passedUrl), 0644)
+				err = os.WriteFile(filePath, []byte(passedUrl), 0644)
 				if err != nil {
 					w.WriteHeader(http.StatusInternalServerError)
 					fmt.Fprintf(w, "Error: Couldn't create shorturl file: %v\n", err)
@@ -164,7 +163,7 @@ For more info see https://github.com/seanbreckenridge/no-db-shorturl
 			// redirect user or 404
 			if _, err := os.Stat(trimmedUrl); err == nil {
 				// shorturl file exists, serve it
-				contents, _ := ioutil.ReadFile(trimmedUrl)
+				contents, _ := os.ReadFile(trimmedUrl)
 				http.Redirect(w, r, strings.TrimSpace(string(contents)), 302)
 				return
 			} else {
