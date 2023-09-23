@@ -34,7 +34,7 @@ func randSeq(n int) string {
 	return string(b)
 }
 
-// generates a hash value that doesnt already exist in ./data
+// generates a hash value that doesn't already exist in ./data
 func generateHashValue() string {
 	hashLength := 4
 	incrementHashCount := randomRetryAmount
@@ -167,7 +167,7 @@ For more info see https://github.com/seanbreckenridge/no-db-shorturl
 				http.Redirect(w, r, strings.TrimSpace(string(contents)), 302)
 				return
 			} else {
-				// shorturl doesnt exist
+				// shorturl doesn't exist
 				w.WriteHeader(http.StatusNotFound)
 				fmt.Fprintf(w, "Error: shorturl %s doesn't exist\n", r.URL.Path)
 				return
