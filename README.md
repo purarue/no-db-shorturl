@@ -73,4 +73,4 @@ server {
 
 Which makes this accessible at `https://mywebsite/s/`.
 
-I have a script [here](https://github.com/seanbreckenridge/vps/blob/master/shorten) which I use to create new URLs.
+I have a script [here](https://github.com/seanbreckenridge/vps/blob/master/bin/shorten) which I use to create new URLs.
