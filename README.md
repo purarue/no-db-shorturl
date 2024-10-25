@@ -30,7 +30,7 @@ alias shz="shorturls | fzf | sed -e 's|^|https://sean.fish/s/|' | tee /dev/tty |
 
 You can also build this from source instead:
 
-`go install -v "github.com/seanbreckenridge/no-db-shorturl@latest"`
+`go install -v "github.com/purarue/no-db-shorturl@latest"`
 
 Usage:
 
@@ -73,4 +73,4 @@ server {
 
 Which makes this accessible at `https://mywebsite/s/`.
 
-I have a script [here](https://github.com/seanbreckenridge/vps/blob/master/bin/shorten) which I use to create new URLs.
+I have a script [here](https://github.com/purarue/vps/blob/master/bin/shorten) which I use to create new URLs.
