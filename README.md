@@ -8,7 +8,7 @@ There are lots of URL shorteners out there, but they mostly use a database as a 
 - No Database
 - No Web Front-End
 - No Dependencies other than the go stdlib.
-- Statically built binary downloadable from [here](https://sean.fish/p/no-db-shorturl-builds/)
+- Statically built binary downloadable from [here](https://purarue.xyz/p/no-db-shorturl-builds/)
 
 This stores each link in its own individual file, in the `./data` directory.
 
@@ -25,7 +25,7 @@ This allows for programmatic shorturl generation on my server, using anything th
 # list all shorturls
 alias shorturls="ssh myserver 'ls shorturls'"  # directory name
 # copy a shorturl to my clipboard
-alias shz="shorturls | fzf | sed -e 's|^|https://sean.fish/s/|' | tee /dev/tty | clipcopy"
+alias shz="shorturls | fzf | sed -e 's|^|https://purarue.xyz/s/|' | tee /dev/tty | clipcopy"
 ```
 
 You can also build this from source instead:
@@ -52,11 +52,11 @@ To add a shortened URL, make a POST request to the `/` endpoint
 
 To use `curl` as an example:
 
-`curl --header "Content-Type: application/json" --request POST --data '{"key":"your_secret_key","url":"https://sean.fish"}' http://localhost:8040`
+`curl --header "Content-Type: application/json" --request POST --data '{"key":"your_secret_key","url":"https://purarue.xyz"}' http://localhost:8040`
 
 or to specify the path to create the shortcut on:
 
-`curl --header "Content-Type: application/json" --request POST --data '{"key":"your_secret_key","url":"https://sean.fish","hash":"short"}' http://localhost:8040`
+`curl --header "Content-Type: application/json" --request POST --data '{"key":"your_secret_key","url":"https://purarue.xyz","hash":"short"}' http://localhost:8040`
 
 I use this with `nginx`, like so:
 

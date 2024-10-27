@@ -143,11 +143,11 @@ func main() {
 				fmt.Fprintf(w, "%s", `The base endpoint not using a POST request does nothing.
 To add a shortened URL, make a POST request to this endpoint. Example:
 
-curl --header "Content-Type: application/json" --request POST --data '{"key":"your_secret_key","url":"https://sean.fish"}' http://localhost:8040
+curl --header "Content-Type: application/json" --request POST --data '{"key":"your_secret_key","url":"https://purarue.xyz"}' http://localhost:8040
 
 or to specify the path to create the shorturl on:
 
-curl --header "Content-Type: application/json" --request POST --data '{"key":"your_secret_key","url":"https://sean.fish","hash":"short"}' http://localhost:8040
+curl --header "Content-Type: application/json" --request POST --data '{"key":"your_secret_key","url":"https://purarue.xyz","hash":"short"}' http://localhost:8040
 
 For more info see https://github.com/purarue/no-db-shorturl
 `)
