@@ -32,7 +32,7 @@ You can also build this from source instead:
 
 `go install -v "github.com/purarue/no-db-shorturl@latest"`
 
-Usage:
+## Usage:
 
 ```
 Usage of no-db-shorturl:
@@ -58,7 +58,9 @@ or to specify the path to create the shortcut on:
 
 `curl --header "Content-Type: application/json" --request POST --data '{"key":"your_secret_key","url":"https://purarue.xyz","hash":"short"}' http://localhost:8040`
 
-I use this with `nginx`, like so:
+## Deployment
+
+With `nginx` at a subpath:
 
 ```
 server {
@@ -68,6 +70,14 @@ server {
   location /s/ {
     proxy_pass https://127.0.0.1:8040/;
   }
+}
+```
+
+With `caddy`:
+
+```
+handle_path /s/* {
+	reverse_proxy http://127.0.0.1:8040
 }
 ```
 
